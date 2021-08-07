@@ -16,8 +16,11 @@ namespace AddressBookLinqTest
                 addressBook = new AddressBookManager();
             }
             [TestMethod]
-             void TestMethod1()
+             void InsertionTest()
             {
+                int expected = 1;
+                int actual = addressBook.InsertIntoAddressBook(new ContactDetails());
+                Assert.AreEqual(expected, actual);
             }
         }
     }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace AddressBookLinq
 {
    public class AddressBookManager
-    {
+   {
         List<ContactDetails> address;
         //adding item to the address book
         List<ContactDetails> AddAddresss()
@@ -23,5 +23,21 @@ namespace AddressBookLinq
 
             return address;
         }
-    }
+        //UC2-Insert Into AddressBook
+      public int InsertIntoAddressBook(ContactDetails contact)
+        {
+            contact.PersonId = 7;
+            contact.FirstName = "suba";
+            contact.LastName = "sri";
+            contact.Address = "PS nagar";
+            contact.City = "Madurai";
+            contact.State = "Tamil nadu";
+            contact.ZipCode = 865432;
+            contact.PhoneNumber = 7856423695;
+            contact.Email = "sri@gmail.com";
+            AddAddresss();
+            address.Add(contact);
+            return 1;
+        }
+   }
 }
