@@ -8,7 +8,7 @@ namespace AddressBookLinq
         {
             Console.WriteLine("welcome to  address book using linq!");
             AddressBookManager AddressBookManager = new AddressBookManager();
-            
+            AddressBookManager.SortingOfList("madurai");
         }
     }
 }

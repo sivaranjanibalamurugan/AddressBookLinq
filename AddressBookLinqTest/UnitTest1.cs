@@ -47,6 +47,15 @@ namespace AddressBookLinqTest
                 string actual = addressBook.RetriveOnCityOrState("trichy", "TamilNadu");
                 Assert.AreEqual(expected, actual);
             }
+        
+            [TestMethod]
+            void CountBaseonCityOrStateTest()
+            {
+                string expected = "ymg 1 madurai 2 abc 1 salem 1 trichy 1 ";
+                addressBook.AddAddresss();
+                string actual = addressBook.CountOfList();
+                Assert.AreEqual(expected, actual);
+            }
         }
     }
 }
