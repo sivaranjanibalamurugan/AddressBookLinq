@@ -68,6 +68,17 @@ namespace AddressBookLinqTest
                 string actual = addressBook.SortingOfList("madurai");
                 Assert.AreEqual(expected, actual);
             }
+        
+        //UC10-Count by type
+        [TestMethod]
+         void CountBaseonType()
+            {
+                string expected = "friends 2 profession 2 family 2 ";
+                addressBook.AddAddresss();
+                string actual = addressBook.CountOfListByType();
+                Assert.AreEqual(expected, actual);
+            }
         }
+
     }
 }
