@@ -53,5 +53,32 @@ namespace AddressBookLinq
                 return 1;
             }
         }
-    }
+        //UC5-Deteling the contact from list
+        public int DeleteContact(int personid)
+        {
+            ContactDetails contact = (from add in address where add.PersonId == personid select add).First();
+            if (contact == null)
+            {
+                return 0;
+            }
+            else
+            {
+                address.Remove(contact);
+                return 1;
+            }
+        }
+        //UC6- Retreive the data 
+        public string RetriveOnCityOrState(string city, string state)
+        {
+            string result = "";
+            var res = (from add in address where (add.City == city || add.State == state) select add).ToList();
+            foreach (var r in res)
+            {
+                result += "" + r.FirstName + " ";
+            }
+            return result;
+        }
+
+   }
 }
+

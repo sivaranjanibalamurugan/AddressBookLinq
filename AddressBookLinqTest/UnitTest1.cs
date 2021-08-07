@@ -31,6 +31,22 @@ namespace AddressBookLinqTest
                 int actual = addressBook.EditContact(4, "Siva", 8976541230);
                 Assert.AreEqual(expected, actual);
             }
+            [TestMethod]
+             void DeleteCOntactTest()
+            {
+                int expected = 1;
+                addressBook.AddAddresss();
+                int actual = addressBook.DeleteContact(3);
+                Assert.AreEqual(expected, actual);
+            }
+            [TestMethod]
+             void RetrivalBaseonCityOrStateTest()
+            {
+                string expected = "ruby james";
+                addressBook.AddAddresss();
+                string actual = addressBook.RetriveOnCityOrState("trichy", "TamilNadu");
+                Assert.AreEqual(expected, actual);
+            }
         }
     }
 }
