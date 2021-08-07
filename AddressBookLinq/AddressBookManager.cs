@@ -89,7 +89,18 @@ namespace AddressBookLinq
             }
             return result;
         }
-       
+        //UC8-Sorting on order
+        public string SortingOfList(string cityName)
+        {
+            string result = "";
+            var res = address.OrderBy(x => x.FirstName).Where(x => x.City == cityName).ToList();
+            foreach (var r in res)
+            {
+                result += "" + r.FirstName + " ";
+            }
+            return result;
+        }
+
 
     }
 }
