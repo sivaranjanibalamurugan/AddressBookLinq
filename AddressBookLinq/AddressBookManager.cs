@@ -14,12 +14,12 @@ namespace AddressBookLinq
         {
 
 
-            address.Add(new ContactDetails { PersonId = 1,  FirstName = "xxx", LastName = "yyy", Address = "crosss street", State = "kerala", City = "ymg", ZipCode = 589643, PhoneNumber = 8667361462, Email = "xxx@gmail.com" });
-            address.Add(new ContactDetails { PersonId = 2,  FirstName = "abc", LastName = "def", Address = "aaaa coloney", State = "TamilNadu", City = "madurai", ZipCode = 546214, PhoneNumber = 8756432109, Email = "abc@gmail.com" });
-            address.Add(new ContactDetails { PersonId = 3,  FirstName = "vvv", LastName = "ssss", Address = "srs road", State = "Kerala", City = "zzz", ZipCode = 456123, PhoneNumber = 9874563210, Email = "vvv@gmail.com" });
-            address.Add(new ContactDetails { PersonId = 6,  FirstName = "siva", LastName = "hari", Address = "KK nagar", State = "TamilNadu", City = "madurai", ZipCode = 123654, PhoneNumber = 6541230987, Email = "siva@gmail.com" });
-            address.Add(new ContactDetails { PersonId = 4,  FirstName = "bala", LastName = "vikram", Address = "market road", State = "TamilNadu", City = "salem", ZipCode = 456987, PhoneNumber = 9871236540, Email = "bala@gmail.com" });
-            address.Add(new ContactDetails { PersonId = 5,  FirstName = "ruby", LastName = "james", Address = "mr nagar", State = "kerala", City = "trichy", ZipCode = 8546321, PhoneNumber = 6547893210, Email = "ruby@gmail.com" });
+            address.Add(new ContactDetails { PersonId = 1,  FirstName = "xxx", LastName = "yyy", Address = "crosss street", State = "kerala", City = "ymg", ZipCode = 589643, PhoneNumber = 8667361462, Email = "xxx@gmail.com", Addbookname= "add2", type="friend" });
+            address.Add(new ContactDetails { PersonId = 2,  FirstName = "abc", LastName = "def", Address = "aaaa coloney", State = "TamilNadu", City = "madurai", ZipCode = 546214, PhoneNumber = 8756432109, Email = "abc@gmail.com", Addbookname= "add1", type= "family" });
+            address.Add(new ContactDetails { PersonId = 3,  FirstName = "vvv", LastName = "ssss", Address = "srs road", State = "Kerala", City = "zzz", ZipCode = 456123, PhoneNumber = 9874563210, Email = "vvv@gmail.com" , Addbookname = "add2", type ="profession"});
+            address.Add(new ContactDetails { PersonId = 6,  FirstName = "siva", LastName = "hari", Address = "KK nagar", State = "TamilNadu", City = "madurai", ZipCode = 123654, PhoneNumber = 6541230987, Email = "siva@gmail.com", Addbookname= "add1", type ="profession" });
+            address.Add(new ContactDetails { PersonId = 4,  FirstName = "bala", LastName = "vikram", Address = "market road", State = "TamilNadu", City = "salem", ZipCode = 456987, PhoneNumber = 9871236540, Email = "bala@gmail.com", Addbookname= "add2", type="family" });
+            address.Add(new ContactDetails { PersonId = 5,  FirstName = "ruby", LastName = "james", Address = "mr nagar", State = "kerala", City = "trichy", ZipCode = 8546321, PhoneNumber = 6547893210, Email = "ruby@gmail.com", Addbookname ="add1", type="friend" });
 
             return address;
         }
@@ -97,6 +97,17 @@ namespace AddressBookLinq
             foreach (var r in res)
             {
                 result += "" + r.FirstName + " ";
+            }
+            return result;
+        }
+        //uc10-based on type
+        public string CountOfListByType()
+        {
+            string result = "";
+            var res = address.GroupBy(x => x.type).Select(x => new { personId = x.Key, count = x.Count() });
+            foreach (var r in res)
+            {
+                result += "" + r.personId + " " + r.count + " ";
             }
             return result;
         }
